@@ -1,6 +1,6 @@
 class Song
- attr_reader :school_name, :add_student, :grade
-  attr_accessor :roster 
+ attr_reader :genres :genre_count :artist_count :artist
+  attr_accessor :
   
   
   
