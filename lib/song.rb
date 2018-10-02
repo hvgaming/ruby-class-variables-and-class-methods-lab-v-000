@@ -16,11 +16,10 @@ require 'pry'
     @@count
   end
    def self.genres
-    @@genres.uniq  # returns a new array by removing duplicate values in self
+    @@genres.uniq  
   end
    def self.artists
-    @@artists.uniq # https://ruby-doc.org/core-2.2.0/Array.html#method-i-uniq
-  end
+    @@artists.uniq 
    def self.genre_count
     @@genres.each_with_object(Hash.new(0)) do |key, hash| #research for better understanding
       hash[key] += 1
