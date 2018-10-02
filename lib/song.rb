@@ -1,0 +1,57 @@
+class Song 
+	attr_accessor :name, :artist, :genre 
+	
+	def initialize(name, genre)
+		@name = name
+		@genre = genre
+		genre.add_song(self)
+	end
+end
+
+#-----------------------------
+class Artist 
+	attr_accessor :name, :songs
+	
+	def initialize(name)
+		@name = name
+		@songs = []
+	end
+	
+	def add_song(song)
+		@songs << song
+		song.artist = self
+	end
+	
+	def songs #used as self.songs in method below
+		@songs
+	end
+	
+	def genres #returns an array of genre objects
+		self.songs.collect do |song|
+			song.genre 
+		end
+	end
+end
+#-----------------------------
+class Genre 
+	attr_accessor :name, :songs
+	
+	def initialize(name)
+		@name = name
+		@songs = []
+	end
+	
+	def songs
+		@songs
+	end
+	
+	def add_song(song)
+		@songs << song
+	end
+	
+	def artists #collect all the artists of a genre
+		@songs.collect do |song|
+			song.artist
+		end
+	end
+end
